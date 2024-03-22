@@ -1,0 +1,1 @@
+export type ElementOrNull<T extends HTMLElement> = T | null;
