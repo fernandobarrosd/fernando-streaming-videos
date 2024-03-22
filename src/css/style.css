@@ -1,0 +1,329 @@
+:root {
+    --black: #000000;
+    --white: #FFFFFF;
+    --bg-color: var(--black);
+    --primary-color: #E72929;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+button, fieldset, input, textarea {
+    border: 0;
+}
+
+button {
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+}
+
+
+
+body {
+    max-width: 1920px;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--white);
+}
+
+
+
+.modal-wrapper {
+    position: fixed;
+    inset: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-wrapper#visible {
+    display: flex;    
+}
+
+
+
+.modal {
+    background-color: var(--white);
+    width: 400px;
+    padding: 20px;
+    color: var(--black);
+    border-radius: 4px;
+}
+
+
+
+.logout-confirmation-modal-wrapper .modal {
+    height: 150px;
+}
+
+.logout-confirmation-modal-wrapper .modal .modal-body {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.confirmation-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.confirmation-container span {
+    font-size: 18px;
+}
+
+.confirm-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.btn-confirm {
+    background-color: var(--black);
+    color: var(--primary-color);
+    padding: 10px;
+    width: 100px;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: .3s transform;
+}
+
+.btn-confirm:hover {
+    transform: scale(1.2);
+}
+
+
+
+
+
+.fields {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+
+
+#login-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+#login-form fieldset {
+    width: 100%;
+}
+
+.form-button {
+    padding: 10px;
+    background-color: var(--black);
+    color: var(--primary-color);
+    border-radius: 4px;
+    width: 200px;
+    font-weight: bold;
+    margin-top: 40px;
+}
+
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-container label {
+    font-size: 14px;
+}
+
+.input-container input {
+    background-color: black;
+    color: var(--white);
+    padding: 8px;
+    border-radius: 4px;
+}
+
+
+
+.video-modal-wrapper .modal{
+    width: 650px;
+}
+
+.video-title {
+    font-size: 16px;
+    font-weight: normal;
+    font-weight: bold;
+    width: 500px;
+    padding: 10px;
+    border-radius: 4px; 
+}
+
+.video-player {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.video-description {
+    margin-top: 20px;
+    font-size: 13px;
+}
+
+
+
+
+
+
+
+.wrapper {
+    height: 100%;
+    padding: 30px;
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-title {
+    font-size: 18px;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    
+}
+
+.header div {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+
+#header-btn-login-logout {
+    padding: 8px;
+    border: 1px solid var(--white);
+    background-color: transparent;
+    color: var(--white);
+    border-radius: 4px;
+    margin-right: 15px;
+    
+}
+
+
+.social-networks {
+    display: flex;
+    gap: 20px;
+}
+
+.social-network-item i {
+    color: var(--white);
+}
+
+
+#videos-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 250px;
+    margin-top: 40px;
+}
+
+#videos-list {
+    display: grid;
+    grid-template-columns: 150px 150px 150px;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.video-item {
+    background-color: gray;
+    padding: 20px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    cursor: pointer;
+    background-image: url(https://media.istockphoto.com/id/1421301993/pt/foto/shopping-cart-sign-on-the-cube-shape-dice.jpg?s=612x612&w=is&k=20&c=9dwAIwsN8AHw_q0WAd3zKP_DRdlTQxrZ1666ZxjzpCg=);
+
+}
+
+.video-item i {
+    font-size: 45px;
+    color: var(--black);
+}
+
+.video-item#create-video {
+    background: var(--white);
+}
+
+.video-item#create-video i {
+    font-size: 30px;
+}
+
+
+
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.footer .social-networks {
+    gap: 40px;
+}
+
+
+
+
+
+
+@media screen and (max-width: 550px) {
+    .social-networks {
+        flex-direction: column;
+    }
+
+    .footer .social-networks {
+        flex-direction: row;
+    }
+
+    
+
+    .header-title {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (max-width: 380px){
+    .header-title {
+        font-size: 14px;
+    }
+}
+
