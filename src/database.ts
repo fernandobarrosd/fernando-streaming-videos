@@ -46,6 +46,7 @@ export const database = {
         }
         catch(e) {
             throw e;
+            
         }
     },
 
