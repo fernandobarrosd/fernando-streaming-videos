@@ -1,0 +1,40 @@
+.logout-confirmation-modal-wrapper .modal {
+    height: 150px;
+}
+
+.logout-confirmation-modal-wrapper .modal .modal-body {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.confirmation-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.confirmation-container span {
+    font-size: 18px;
+}
+
+.confirm-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.btn-confirm {
+    background-color: var(--black);
+    color: var(--primary-color);
+    padding: 10px;
+    width: 100px;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: .3s transform;
+}
+
+.btn-confirm:hover {
+    transform: scale(1.2);
+}

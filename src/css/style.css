@@ -1,29 +1,10 @@
-:root {
-    --black: #000000;
-    --white: #FFFFFF;
-    --bg-color: var(--black);
-    --primary-color: #E72929;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-button, fieldset, input, textarea {
-    border: 0;
-}
-
-button {
-    cursor: pointer;
-}
-
-ul {
-    list-style: none;
-}
-
+@import "variables.css";
+@import "reset.css";
+@import "loading-style.css";
+@import "modal-style.css";
+@import "logout-confirmation-modal-style.css";
+@import "login-form-style.css";
+@import "video-modal-style.css";
 
 
 body {
@@ -34,112 +15,11 @@ body {
     color: var(--white);
 }
 
-
-
-.modal-wrapper {
-    position: fixed;
-    inset: 0;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.7);
-}
-
-.modal-wrapper#visible {
-    display: flex;    
-}
-
-
-
-.modal {
-    background-color: var(--white);
-    width: 400px;
-    padding: 20px;
-    color: var(--black);
-    border-radius: 4px;
-}
-
-
-
-.logout-confirmation-modal-wrapper .modal {
-    height: 150px;
-}
-
-.logout-confirmation-modal-wrapper .modal .modal-body {
-    display: flex;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-}
-
-.confirmation-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
-
-.confirmation-container span {
-    font-size: 18px;
-}
-
-.confirm-buttons {
-    display: flex;
-    gap: 20px;
-}
-
-.btn-confirm {
-    background-color: var(--black);
-    color: var(--primary-color);
-    padding: 10px;
-    width: 100px;
-    font-weight: bold;
-    border-radius: 4px;
-    transition: .3s transform;
-}
-
-.btn-confirm:hover {
-    transform: scale(1.2);
-}
-
-
-
-
-
 .fields {
     display: flex;
     flex-direction: column;
     gap: 30px;
 }
-
-
-
-#login-form {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
-
-#login-form fieldset {
-    width: 100%;
-}
-
-.form-button {
-    padding: 10px;
-    background-color: var(--black);
-    color: var(--primary-color);
-    border-radius: 4px;
-    width: 200px;
-    font-weight: bold;
-    margin-top: 40px;
-}
-
 
 .input-container {
     display: flex;
@@ -159,33 +39,23 @@ body {
 }
 
 
-
-.video-modal-wrapper .modal{
-    width: 650px;
-}
-
-.video-title {
-    font-size: 16px;
-    font-weight: normal;
-    font-weight: bold;
-    width: 500px;
-    padding: 10px;
-    border-radius: 4px; 
-}
-
-.video-player {
-    width: 100%;
-    margin-top: 20px;
-}
-
-.video-description {
-    margin-top: 20px;
-    font-size: 13px;
+.upload-video-modal-wrapper .modal {
+    width: 550px;
 }
 
 
 
+.input-container-file {
+    margin-bottom: 20px;
+}
 
+
+
+#upload-video-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 
 
@@ -286,8 +156,6 @@ body {
 }
 
 
-
-
 .footer {
     display: flex;
     justify-content: center;
@@ -298,9 +166,6 @@ body {
 .footer .social-networks {
     gap: 40px;
 }
-
-
-
 
 
 
@@ -326,4 +191,3 @@ body {
         font-size: 14px;
     }
 }
-

@@ -1,0 +1,21 @@
+#login-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+#login-form fieldset {
+    width: 100%;
+}
+
+.form-button {
+    padding: 10px;
+    background-color: var(--black);
+    color: var(--primary-color);
+    border-radius: 4px;
+    width: 200px;
+    font-weight: bold;
+    margin-top: 40px;
+}
