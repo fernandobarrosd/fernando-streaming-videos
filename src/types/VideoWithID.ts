@@ -1,3 +1,3 @@
-import { Video } from "./Video";
+import { FirestoreVideo } from "./Video";
 
-export type VideoWithID = Video & { id: string }
+export type VideoWithID = FirestoreVideo & { id: string }

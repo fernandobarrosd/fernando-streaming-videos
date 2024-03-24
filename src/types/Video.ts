@@ -1,9 +1,16 @@
-import { Timestamp } from "firebase/firestore"
+import { Timestamp } from "firebase/firestore";
 
-export type Video = {
+
+export type FirestoreVideo = {
     title: string
-    description: string
     imageURL: string
     videoURL: string
+    createdAt: Timestamp
+}
+
+export type VideoInput = {
+    title: string
+    imageFile: File
+    videoFile: File
     createdAt: Timestamp
 }
