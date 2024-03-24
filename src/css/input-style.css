@@ -1,0 +1,23 @@
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-container label {
+    font-size: 14px;
+}
+
+.input-container input {
+    background-color: var(--black);
+    color: var(--white);
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.input-container textarea {
+    resize: none;
+    background-color: var(--black);
+    color: var(--white);
+    padding: 10px;
+}

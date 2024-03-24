@@ -1,0 +1,46 @@
+.view-video-preview-modal-wrapper .modal {
+    width: 550px;
+}
+
+#view-preview-video-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+.input-container.file input {
+    display: none;
+}
+
+
+.label-input-file {
+    width: 500px;
+    height: 100px;
+    background-color: var(--black);
+    color: var(--white);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 3px dashed var(--primary-color);
+}
+
+
+.label-input-file i {
+    background-color: var(--primary-color);
+    padding: 6px;
+    border-radius: 50%;
+    margin-top: 10px;
+}
+
+
+#video-title {
+    font-size: 20px;
+    background-color: transparent;
+    color: rgb(42, 40, 40);
+    outline: none;
+}

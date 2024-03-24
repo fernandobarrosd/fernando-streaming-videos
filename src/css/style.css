@@ -5,6 +5,9 @@
 @import "logout-confirmation-modal-style.css";
 @import "login-form-style.css";
 @import "video-modal-style.css";
+@import "view-video-preview-modal-style.css";
+@import "input-style.css";
+@import "video-preview-modal-style.css";
 
 
 body {
@@ -21,27 +24,10 @@ body {
     gap: 30px;
 }
 
-.input-container {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.input-container label {
-    font-size: 14px;
-}
-
-.input-container input {
-    background-color: black;
-    color: var(--white);
-    padding: 8px;
-    border-radius: 4px;
-}
 
 
-.upload-video-modal-wrapper .modal {
-    width: 550px;
-}
+
+
 
 
 
@@ -51,11 +37,7 @@ body {
 
 
 
-#upload-video-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+
 
 
 
@@ -139,6 +121,9 @@ body {
     border-radius: 4px;
     cursor: pointer;
     background-image: url(https://media.istockphoto.com/id/1421301993/pt/foto/shopping-cart-sign-on-the-cube-shape-dice.jpg?s=612x612&w=is&k=20&c=9dwAIwsN8AHw_q0WAd3zKP_DRdlTQxrZ1666ZxjzpCg=);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 
 }
 
