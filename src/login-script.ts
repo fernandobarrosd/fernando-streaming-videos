@@ -1,44 +1,52 @@
 import { FirebaseError } from "firebase/app";
 import { database } from "./database";
 import { ElementOrNull } from "./types/ElementOrNull";
+import { getInputsFromForm } from "./utils/get-inputs-from-form";
+import { setElementVisibility } from "./utils/visibility-utils";
+
+const $loginModalWrapper = document.querySelector(".login-modal-wrapper");
+
+const $loginForm = 
+$loginModalWrapper?.querySelector("#login-form") as ElementOrNull<HTMLFormElement>;
+
+const $btnLogin = 
+document.querySelector("#header-btn-login-logout") as ElementOrNull<HTMLButtonElement>;
 
 export function showLoginModal() {
-    $loginModalWrapper?.setAttribute("id", "visible");
+    setElementVisibility($loginModalWrapper, true);
+}
+
+if ($btnLogin) {
+    $btnLogin.onclick = showLoginModal;
 }
 
 
-const $loginModalWrapper = 
-document.querySelector(".login-modal-wrapper") as ElementOrNull<HTMLDivElement>;
+function getMessageFromCode(code: string) {
+    const errors = {
+        "auth/network-request-failed": "Internet error",
+        "auth/invalid-credential": "Invalid email or password",
+        "auth/missing-password": "Password is invalid",
+        "auth/invalid-email": "E-mail is invalid"
+    };
+    type Message = keyof typeof errors;
 
-const $loginForm = 
-$loginModalWrapper?.querySelector("#login-form") as ElementOrNull<HTMLFormElement>
-
-const $btnLogin = 
-document.querySelector("#header-btn-login-logout") as ElementOrNull<HTMLButtonElement>
-
-if ($btnLogin) {
-    $btnLogin.onclick = showLoginModal
+    const message = errors[code as Message] || "Error";
+    return message;
 }
 
 $loginForm?.addEventListener("submit", async e => {
     e.preventDefault();
-    if (e.target instanceof HTMLFormElement) {
-        const [ email, password ] = Array.from(e.target.elements)
-        .filter(element => element instanceof HTMLInputElement) as HTMLInputElement[];
+    const target = e.target as HTMLFormElement;
+    const [ email, password ] = getInputsFromForm(target);
 
-        try {
-            const credentials = await database.authenticate(email.value, password.value);
-
-            $loginModalWrapper?.setAttribute("id", "");
-        } catch (e) {
-            if (e instanceof FirebaseError) {
-                if (e.code === "auth/network-request-failed") {
-                    console.error("Internet error");
-                }
-                console.error("Error");
-            }
+    
+    try {
+        await database.authenticate(email.value, password.value);
+        setElementVisibility($loginModalWrapper, false);
+    } catch (e) {
+        if (e instanceof FirebaseError) {
+            const message = getMessageFromCode(e.code);
+            console.log(message);
         }
-        
     }
-   
 });
