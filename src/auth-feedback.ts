@@ -3,22 +3,22 @@ import { ElementOrNull } from "./types/ElementOrNull";
 import { firebase } from "./lib/firebase";
 import { database } from "./database";
 import { showLoginModal } from "./login-script";
+import { setElementVisibility } from "./utils/visibility-utils";
 
 const $btnLoginLogout = 
 document.querySelector("#header-btn-login-logout") as ElementOrNull<HTMLButtonElement>;
-const $confirmationModalWrapper = 
-document.querySelector(".logout-confirmation-modal-wrapper") as ElementOrNull<HTMLDivElement>;
+const $confirmationModalWrapper = document.querySelector(".logout-confirmation-modal-wrapper");
 
 
 function handleLogout() {
-    $confirmationModalWrapper?.setAttribute("id", "visible");
+    setElementVisibility($confirmationModalWrapper, true);
 
     $confirmationModalWrapper?.addEventListener("click", ({ target }) => {
         if (target instanceof HTMLButtonElement) {
             if (target.id === "btn-yes") {
                 database.logout();
             }
-            $confirmationModalWrapper.setAttribute("id", "");
+            setElementVisibility($confirmationModalWrapper, false);
         }
 
     });
