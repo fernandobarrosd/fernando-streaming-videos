@@ -24,21 +24,9 @@ body {
     gap: 30px;
 }
 
-
-
-
-
-
-
-
 .input-container-file {
     margin-bottom: 20px;
 }
-
-
-
-
-
 
 
 .wrapper {
@@ -101,7 +89,7 @@ body {
     align-items: center;
     gap: 20px;
     margin-bottom: 250px;
-    margin-top: 40px;
+    
 }
 
 #videos-list {

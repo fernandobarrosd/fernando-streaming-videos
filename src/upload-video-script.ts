@@ -5,7 +5,7 @@ import { database } from "./database";
 import { Timestamp } from "firebase/firestore";
 import { ElementOrNull } from "./types/ElementOrNull";
 import { setElementVisibility } from "./utils/visibility-utils";
-import { createPreviewVideoItem } from "./list-all-videos-with-image-and-id";
+import { createPreviewVideoItem } from "./crete-video-item";
 
 onAuthStateChanged(firebase.auth, user => {
     if (!user) {
@@ -73,11 +73,12 @@ onAuthStateChanged(firebase.auth, user => {
                                 videoFile: video.files![0],
                                 createdAt: Timestamp.fromDate(new Date())
                             });
+                            alert("Video postado");
                             const { id } = videoCreated;
                             const $videoItem = createPreviewVideoItem(id, result.toString());
                             $videosList?.appendChild($videoItem);
                             setElementVisibility($previewVideoModalWrapper, false);
-                            alert("Video postado");
+                            
                         }
                         
                     )

@@ -67,15 +67,15 @@ export const database = {
         }));
     },
 
-    /* async findVideoByID(id: string) : Promise<VideoWithID> {
+    async findVideoByID(id: string) : Promise<VideoWithID> {
         const videoDoc = doc(firebase.firestore, `videos/${id}`);
         const videoSnapshot = await getDoc(videoDoc);
-        const videoData = videoSnapshot.data() as VideoOutput;
+        const videoData = videoSnapshot.data() as FirestoreVideo;
         return {
             id: videoSnapshot.id,
             ...videoData
         }
-    }, */
+    },
 
     async authenticate(email: string, password: string) {
         const auth = firebase.auth;
