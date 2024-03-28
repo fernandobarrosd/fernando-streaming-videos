@@ -28,3 +28,9 @@
     margin-top: 20px;
     color: rgb(55, 54, 54);
 }
+
+@media screen and (max-width: 665px){
+    .video-modal-wrapper .modal{
+        width: 100%;
+    }
+}

@@ -1,3 +1,4 @@
+import "./modal-wrapper-script";
 import "./auth-feedback";
 import "./login-script";
 import "./upload-video-script";

@@ -6,6 +6,9 @@ import { Timestamp } from "firebase/firestore";
 import { ElementOrNull } from "./types/ElementOrNull";
 import { setElementVisibility } from "./utils/visibility-utils";
 import { createPreviewVideoItem } from "./crete-video-item";
+import { getMessageFromCode } from "./utils/get-message-from-code";
+import { FirebaseError } from "firebase/app";
+import { setButtonDisabled } from "./utils/disable-button";
 
 onAuthStateChanged(firebase.auth, user => {
     if (!user) {
@@ -26,6 +29,10 @@ onAuthStateChanged(firebase.auth, user => {
         document.querySelector("#video-preview") as ElementOrNull<HTMLImageElement>;
 
         const $previewVideoModalWrapper = document.querySelector(".video-preview-modal-wrapper");
+
+        const $btnPostVideo = 
+        document.querySelector("#btn-post-video") as ElementOrNull<HTMLButtonElement>;
+
 
 
         function showVideoPreview(videoTitle: string, videoImageSrc: string,
@@ -67,17 +74,29 @@ onAuthStateChanged(firebase.auth, user => {
                         videoTitle.value, 
                         result.toString(), 
                         async () => {
-                            const videoCreated = await database.createVideo({
-                                title: videoTitle.value,
-                                imageFile: videoImage.files![0],
-                                videoFile: video.files![0],
-                                createdAt: Timestamp.fromDate(new Date())
-                            });
-                            alert("Video postado");
-                            const { id } = videoCreated;
-                            const $videoItem = createPreviewVideoItem(id, result.toString());
-                            $videosList?.appendChild($videoItem);
-                            setElementVisibility($previewVideoModalWrapper, false);
+                            try {
+                                const videoCreated = await database.createVideo({
+                                    title: videoTitle.value,
+                                    imageFile: videoImage.files![0],
+                                    videoFile: video.files![0],
+                                    createdAt: Timestamp.fromDate(new Date())
+                                });
+                                setButtonDisabled($btnPostVideo, true);
+                                alert("Video postado");
+                                const { id } = videoCreated;
+                                const $videoItem = createPreviewVideoItem(id, result.toString());
+                                $videosList?.appendChild($videoItem);
+                                setElementVisibility($previewVideoModalWrapper, false);
+                            }
+                            catch (e) {
+                                if (e instanceof FirebaseError) {
+                                    const message = getMessageFromCode(e.code);
+                                    console.log(message);
+                                }
+                            }
+                            finally {
+                                setButtonDisabled($btnPostVideo, false);
+                            }
                             
                         }
                         
